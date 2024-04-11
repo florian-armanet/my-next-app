@@ -30,3 +30,11 @@ type Stats = {
     special_defense: number;
     speed: number;
 }
+
+export type User = {
+    id: string;
+    name: string;
+    email: string;
+    password: string;
+    team: string;
+};

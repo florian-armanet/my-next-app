@@ -1,2 +1,2 @@
-export const shimmer =
-  'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent';
+export const _NB_MAX_IN_TEAM = 6
+export const _MAIL_TMP = 'armanet.florian@gmail.com'

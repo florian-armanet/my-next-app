@@ -1,5 +1,6 @@
 export default function ListPokemonsSkeleton() {
     const arrayFake = new Array(9).fill(null)
+    
     return (
         <div
             className={`animate-pulse p-2`}

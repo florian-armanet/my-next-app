@@ -1,10 +1,10 @@
 const users = [
     {
-        id: '410544b2-4001-4271-9855-fec4b6a6442a',
+        id: '410544b2-4001-4271-9855-fec4b6a6369b',
         name: 'User',
-        email: 'user@nextmail.com',
-        password: '123456',
-        team: "[1, 4, 7]"
+        email: 'armanet.florian@gmail.com',
+        password: '0000',
+        team: "4,5,6,7"
     },
 ];
 
