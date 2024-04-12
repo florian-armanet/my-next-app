@@ -41,7 +41,6 @@ export async function getPokemonByPokedexId(pokedexId: number) {
     
     if(!pokedexId) return
 
-    await new Promise((resolve) => setTimeout(resolve, 3000));
     try {
         const data = await sql<PokemonSpreaded>`
         SELECT pokemons.pokedexId, pokemons.name, pokemons.image, pokemons.sprite, pokemons.slug, pokemons.HP, pokemons.attack, pokemons.defense, pokemons.special_attack, pokemons.special_defense, pokemons.speed
@@ -72,6 +71,8 @@ export async function getPokemonByPokedexId(pokedexId: number) {
 }
 
 export async function getUser(email: string) {
+    noStore();
+
     try {
         const user = await sql`SELECT * FROM users WHERE email=${email}`;
         console.log('users: ', user.rows)
