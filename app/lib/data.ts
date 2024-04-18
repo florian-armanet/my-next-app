@@ -38,8 +38,8 @@ export async function fetchFirstPokemons() {
 
 export async function getPokemonByPokedexId(pokedexId: number) {
     noStore();
-    
-    if(!pokedexId) return
+
+    if (!pokedexId) return
 
     try {
         const data = await sql<PokemonSpreaded>`
@@ -75,7 +75,7 @@ export async function getUser(email: string) {
 
     try {
         const user = await sql`SELECT * FROM users WHERE email=${email}`;
-        console.log('users: ', user.rows)
+        console.log(user.rows[0])
         return user.rows[0] as User;
     } catch (error) {
         console.error('Failed to fetch user:', error);

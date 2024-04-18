@@ -1,4 +1,4 @@
-export type PokemonSpreaded = {
+export interface PokemonSpreaded {
     id: number;
     pokedexid: number;
     name: string;
@@ -13,7 +13,7 @@ export type PokemonSpreaded = {
     speed: number;
 }
 
-export type Pokemon = {
+export interface Pokemon {
     pokedexId: number;
     name: string;
     image: string;
@@ -22,7 +22,7 @@ export type Pokemon = {
     stats: Stats;
 }
 
-type Stats = {
+interface Stats {
     hp: number;
     attack: number;
     defense: number;
@@ -31,10 +31,12 @@ type Stats = {
     speed: number;
 }
 
-export type User = {
+export interface User {
     id: string;
     name: string;
     email: string;
     password: string;
     team: string;
 };
+
+export type Team = number[]

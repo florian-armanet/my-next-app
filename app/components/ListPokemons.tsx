@@ -1,14 +1,15 @@
-import { _MAIL_TMP } from "../lib/constants";
-import { fetchFirstPokemons, getUser } from "../lib/data";
-import ListPokemonsItem from "./ListPokemonsItem";
+'use client'
 
-export default async function ListPokemons() {
-    const firstPokemons = await fetchFirstPokemons()
-    const user = await getUser(_MAIL_TMP)
+import { _MAIL_TMP } from "../lib/constants";
+import ListPokemonsItem from "./ListPokemonsItem";
+import { usePokemons } from "./context/PokemonsContext";
+
+export default function ListPokemons() {
+    const [pokemons] = usePokemons()
 
     return (
         <ul className="flex flex-col">
-            {firstPokemons.map(pokemon => <ListPokemonsItem pokemon={pokemon} user={user} key={pokemon.pokedexId}/>)}
+            {pokemons.map(pokemon => <ListPokemonsItem pokemon={pokemon} key={pokemon.pokedexId} />)}
         </ul>
     )
 }
