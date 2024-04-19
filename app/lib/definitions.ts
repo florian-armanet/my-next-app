@@ -39,4 +39,4 @@ export interface User {
     team: string;
 };
 
-export type Team = number[]
+export type Team = Pokemon[]

@@ -2,7 +2,7 @@
 
 import { _MAIL_TMP, _NB_MAX_IN_TEAM } from '@/app/lib/constants'
 import TeamItem from './TeamItem';
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
 import TeamItemSkeleton from './skeleton/TeamItemSkeleton';
 import TeamItemAdd from './TeamItemAdd';
 import { useTeam } from './context/TeamContext';
@@ -22,7 +22,7 @@ export default function Team() {
                         className=''>
                         {index < team.length &&
                             <Suspense fallback={<TeamItemSkeleton />}>
-                                <TeamItem pokemonId={Number(team[index])} />
+                                <TeamItem pokemon={team[index]} />
                             </Suspense>}
                         {index >= team.length && <TeamItemAdd />}
                     </li>

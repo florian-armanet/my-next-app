@@ -9,7 +9,7 @@ export default function TeamItemRemove({ pokemon }: { pokemon: Pokemon }) {
 
     const handleClick = () => {
         removePokemonOfTeam(team, pokemon)
-        setTeam([...team].filter(tId => tId !== pokemon.pokedexId))
+        setTeam([...team].filter(p => p.pokedexId !== pokemon.pokedexId))
     }
 
     return (

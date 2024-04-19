@@ -1,12 +1,10 @@
 'use client'
 
 import { _MAIL_TMP } from "../lib/constants";
+import { Pokemon } from "../lib/definitions";
 import ListPokemonsItem from "./ListPokemonsItem";
-import { usePokemons } from "./context/PokemonsContext";
 
-export default function ListPokemons() {
-    const [pokemons] = usePokemons()
-
+export default async function ListPokemons({ pokemons }: { pokemons: Pokemon[] }) {
     return (
         <ul className="flex flex-col">
             {pokemons.map(pokemon => <ListPokemonsItem pokemon={pokemon} key={pokemon.pokedexId} />)}

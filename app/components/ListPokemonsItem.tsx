@@ -9,14 +9,16 @@ import { _NB_MAX_IN_TEAM } from "../lib/constants";
 export default function ListPokemonsItem({ pokemon }: { pokemon: Pokemon }) {
     const [team, setTeam] = useTeam()
 
+    const hasPokemonInTeam = [...team].find(p => p.pokedexId === pokemon.pokedexId)
+
     const handleAddPokemon = () => {
         addPokemonInTeam(team, pokemon)
-        setTeam([...team, pokemon.pokedexId])
+        setTeam([...team, pokemon])
     }
 
     const handleRemovePokemon = () => {
         removePokemonOfTeam(team, pokemon)
-        setTeam([...team].filter(tId => tId !== pokemon.pokedexId))
+        setTeam([...team].filter(p => p.pokedexId !== pokemon.pokedexId))
     }
 
     return (
@@ -41,10 +43,10 @@ export default function ListPokemonsItem({ pokemon }: { pokemon: Pokemon }) {
                 </ul>
             </div>
 
-            {(!team.includes(pokemon.pokedexId) && team.length < _NB_MAX_IN_TEAM) &&
+            {(!hasPokemonInTeam && team.length < _NB_MAX_IN_TEAM) &&
                 <button onClick={handleAddPokemon} className="p-2 bg-violet-800 text-white font-bold rounded-lg h-8 w-8 flex flex-wrap justify-center items-center leading-none">+</button>}
 
-            {team.includes(pokemon.pokedexId) &&
+            {hasPokemonInTeam &&
                 <button onClick={handleRemovePokemon} className="p-2 bg-red-500 text-white font-bold rounded-lg h-8 w-8 flex flex-wrap justify-center items-center leading-none">x</button>}
         </li>
     )

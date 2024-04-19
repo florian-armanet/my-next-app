@@ -4,12 +4,12 @@ import { sql } from "@vercel/postgres";
 import { Pokemon, Team, User } from "./definitions";
 import { _MAIL_TMP } from "./constants";
 import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation'
+// import { redirect } from 'next/navigation'
 
 export async function addPokemonInTeam(team: Team, pokemon: Pokemon) {
     if(!team.length || !Object.keys(pokemon).length) return
 
-    const teamPokedexid = [...team, String(pokemon.pokedexId)]
+    const teamPokedexid = [...team.map(p => String(p.pokedexId)), String(pokemon.pokedexId)] as string[]
 
     await sql`
     UPDATE users
@@ -17,13 +17,13 @@ export async function addPokemonInTeam(team: Team, pokemon: Pokemon) {
     WHERE email = ${_MAIL_TMP}
     `
     revalidatePath('/');
-    redirect('/');
+    // redirect('/');
 }
 
 export async function removePokemonOfTeam(team: Team, pokemon: Pokemon) {
     if(!team.length || !Object.keys(pokemon).length) return
     
-    const teamPokedexidUpdated = team.filter(pokId => pokId !== pokemon.pokedexId)
+    const teamPokedexidUpdated = team.filter(p => p.pokedexId !== pokemon.pokedexId).map(p => String(p.pokedexId))
 
     await sql`
     UPDATE users
@@ -31,5 +31,5 @@ export async function removePokemonOfTeam(team: Team, pokemon: Pokemon) {
     WHERE email = ${_MAIL_TMP}
     `
     revalidatePath('/');
-    redirect('/');
+    // redirect('/');
 }
