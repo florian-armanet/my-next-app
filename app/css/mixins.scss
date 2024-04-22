@@ -1,0 +1,13 @@
+@mixin fontFace($font, $value, $variant) {
+    @font-face {
+        font-family: '#{$font}';
+        font-weight: #{$value};
+        font-display: swap;
+        src: font('#{$font}-#{$value}.eot', if(global-variable-exists(base-css-path), $base-css-path, ''));
+        src: local('#{$font} #{$variant}'), local('#{$font}-#{$variant}'),
+        font('#{$font}-#{$value}.eot?#iefix', if(global-variable-exists(base-css-path), $base-css-path, '')) format('embedded-opentype'),
+        font('#{$font}-#{$value}.woff2', if(global-variable-exists(base-css-path), $base-css-path, '')) format('woff2'),
+        font('#{$font}-#{$value}.woff', if(global-variable-exists(base-css-path), $base-css-path, '')) format('woff'),
+        font('#{$font}-#{$value}.ttf', if(global-variable-exists(base-css-path), $base-css-path, '')) format('truetype');
+    }
+}

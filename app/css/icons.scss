@@ -1,0 +1,20 @@
+/*
+ * [ settings / icon ]
+ */
+
+// -----------------------------------------------------------------------------
+
+$icons: (
+    health :'e900',
+    close :'e901',
+    search :'e902',
+    plus :'e903',
+);
+
+@function str-unicode($str) {
+    @return unquote("\"") + unquote(str-insert($str, "\\", 1)) + unquote("\"")
+}
+
+@function unicode($icon) {
+    @return str-unicode(quote(map-get($icons, $icon)));
+}

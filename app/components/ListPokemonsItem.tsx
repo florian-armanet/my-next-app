@@ -44,10 +44,10 @@ export default function ListPokemonsItem({ pokemon }: { pokemon: Pokemon }) {
             </div>
 
             {(!hasPokemonInTeam && team.length < _NB_MAX_IN_TEAM) &&
-                <button onClick={handleAddPokemon} className="p-2 bg-violet-800 text-white font-bold rounded-lg h-8 w-8 flex flex-wrap justify-center items-center leading-none">+</button>}
+                <i onClick={handleAddPokemon} className="Icon-plus p-2 bg-violet-800 text-white font-bold rounded-lg h-8 w-8 flex flex-wrap justify-center items-center leading-none cursor-pointer"/>}
 
             {hasPokemonInTeam &&
-                <button onClick={handleRemovePokemon} className="p-2 bg-red-500 text-white font-bold rounded-lg h-8 w-8 flex flex-wrap justify-center items-center leading-none">x</button>}
+                <i onClick={handleRemovePokemon} className="Icon-close p-2 bg-red-500 text-white font-bold rounded-lg h-8 w-8 flex flex-wrap justify-center items-center leading-none cursor-pointer"/>}
         </li>
     )
 }

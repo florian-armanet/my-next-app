@@ -1,0 +1,30 @@
+/*
+ * [ components / animations ]
+ */
+
+// -----------------------------------------------------------------------------
+
+
+.Animation-translateY-opacity-enter,
+.Animation-translateY-opacity-appear {
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+.Animation-translateY-opacity-enter-active,
+.Animation-translateY-opacity-appear-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1200ms, transform 1200ms;
+}
+
+.Animation-translateY-opacity-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.Animation-translateY-opacity-exit-active {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 1500ms, transform 1500ms;
+}

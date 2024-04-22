@@ -21,8 +21,6 @@ export default async function Home(
 
     const idsOfTeam = user.team.split(',').map(id => Number(id))
     const team = await Promise.all([...idsOfTeam.map(idsOfTeam => getPokemonByPokedexId(idsOfTeam)).filter(p => p)]) as TypeTeam
-    console.log('team: ', team)
-
 
     return (
         <main className="flex min-h-screen flex-col p-24">
