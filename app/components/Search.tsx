@@ -11,13 +11,12 @@ export default function Search() {
     const { replace } = useRouter()
     const [query, setQuery] = useQuery()
     const inputRef = useRef<HTMLInputElement>(null)
+    const params = new URLSearchParams(searchParams)
 
     /**
      * 
      */
     const handleChange = useDebouncedCallback((term: string) => {
-        const params = new URLSearchParams(searchParams)
-
         setQuery(term)
 
         if (term) {
@@ -34,8 +33,6 @@ export default function Search() {
      * 
      */
     const handleReset = () => {
-        const params = new URLSearchParams(searchParams)
-
         setQuery('')
 
         params.delete('query')
@@ -43,10 +40,16 @@ export default function Search() {
     }
 
     useEffect(() => {
-        if (inputRef?.current?.value) {
+        if (inputRef?.current) {
             inputRef.current.value = query
         };
     }, [query])
+
+    useEffect(() => {
+        if (params.get('query') && inputRef.current) {
+            inputRef.current.value = params.get('query') as string
+        }
+    }, [])
 
     return (
         <div className="flex flex-wrap justify-center mb-8">
@@ -56,7 +59,11 @@ export default function Search() {
                     onChange={(e) => handleChange(e.target.value)}
                     placeholder="Rechercher un pokemon..."
                     className="w-full bg-transparent text-violet-900 focus:outline-none placeholder:text-violet-900 font-bold flex-1" />
-                {(!!query.length) && <i onClick={handleReset} className="Icon-close text-violet-800 font-bold text-xl cursor-pointer"></i>}
+                {query.length ?
+                    <i onClick={handleReset} className="Icon-close text-violet-800 font-bold text-xl cursor-pointer"></i>
+                    :
+                    <i className="Icon-search text-violet-800 font-bold text-xl"></i>
+                }
             </div>
         </div>
     )
