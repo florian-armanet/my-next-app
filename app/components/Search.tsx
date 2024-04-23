@@ -10,7 +10,7 @@ export default function Search() {
     const pathname = usePathname()
     const { replace } = useRouter()
     const [query, setQuery] = useQuery()
-    const inputRef = useRef()
+    const inputRef = useRef<HTMLInputElement>(null)
 
     /**
      * 
@@ -38,13 +38,14 @@ export default function Search() {
 
         setQuery('')
 
-        // inputRef.current.value = query
         params.delete('query')
         replace(`${pathname}`)
     }
 
     useEffect(() => {
-        inputRef.current.value = query
+        if (inputRef?.current?.value) {
+            inputRef.current.value = query
+        };
     }, [query])
 
     return (
