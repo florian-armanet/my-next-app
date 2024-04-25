@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { addPokemonInTeam, removePokemonOfTeam } from "../lib/actions";
 import { useTeam } from './context/TeamContext';
 import { _NB_MAX_IN_TEAM } from "../lib/constants";
+import Link from "next/link";
 
 export default function ListPokemonsItem({ pokemon }: { pokemon: Pokemon }) {
     const [team, setTeam] = useTeam()
@@ -24,24 +25,19 @@ export default function ListPokemonsItem({ pokemon }: { pokemon: Pokemon }) {
     return (
         <li className="basis-1/4 p-2" key={pokemon.pokedexId}>
             <div className="bg-violet-200 h-full rounded-xl p-4 flex flex-col">
-                <Image
-                    src={pokemon.sprite}
-                    width={48}
-                    height={48}
-                    alt={pokemon.name}
-                    className="mb-2 mx-auto"
-                />
+                <Link href={`/pokemons/${pokemon.pokedexId}`}>
+                    <Image
+                        src={pokemon.sprite}
+                        width={48}
+                        height={48}
+                        alt={pokemon.name}
+                        className="mb-2 mx-auto"
+                    />
+                </Link>
 
                 <div className="text-center mb-4">
                     <p className="font-bold">{pokemon.name}</p>
                     <p>Pokedex id : {pokemon.pokedexId}</p>
-                    {/* <ul className="flex flex-wrap">
-                        {Object.entries(pokemon?.stats).map(([statName, statValue], index) =>
-                            <li className="mr-4" key={index}>
-                                {statName} : {statValue}
-                            </li>
-                        )}
-                    </ul> */}
                 </div>
 
                 <div className="flex flx-wrap justify-center">
