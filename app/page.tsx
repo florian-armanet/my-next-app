@@ -23,16 +23,18 @@ export default async function Home(
     const team = await Promise.all([...idsOfTeam.map(idsOfTeam => getPokemonByPokedexId(idsOfTeam)).filter(p => p)]) as TypeTeam
 
     return (
-        <main className="flex min-h-screen flex-col p-24">
+        <main className="flex min-h-screen flex-col">
             <UserProvider user={user}>
                 <PokemonsProvider pokemons={pokemons}>
                     <TeamProvider team={team}>
                         <QueryProvider query={query}>
                             <Team />
-                            <Search />
-                            <Suspense fallback={<ListPokemonsSkeleton />}>
-                                <ListPokemons pokemons={pokemons} />
-                            </Suspense>
+                            <div className="px-24 pb-24">
+                                <Search />
+                                <Suspense fallback={<ListPokemonsSkeleton />}>
+                                    <ListPokemons pokemons={pokemons} />
+                                </Suspense>
+                            </div>
                         </QueryProvider>
                     </TeamProvider>
                 </PokemonsProvider>

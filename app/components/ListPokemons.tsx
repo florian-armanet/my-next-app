@@ -7,7 +7,7 @@ export default async function ListPokemons({ pokemons }: { pokemons: Pokemon[] }
         <>
             {
                 pokemons.length ?
-                    <ul className="flex flex-col">
+                    <ul className="flex flex-wrap">
                         {pokemons.map(pokemon => <ListPokemonsItem pokemon={pokemon} key={pokemon.pokedexId} />)}
                     </ul>
                     :
