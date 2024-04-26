@@ -1,7 +1,7 @@
 'use client'
 
 import { Pokemon } from '@/app/lib/definitions';
-import { useTeam } from '../../components/context/TeamContext';
+import { useTeam } from '../context/TeamContext';
 import { removePokemonOfTeam } from "../../lib/actions";
 
 export default function RemoveOfTeam({ pokemon }: { pokemon: Pokemon }) {
@@ -14,7 +14,7 @@ export default function RemoveOfTeam({ pokemon }: { pokemon: Pokemon }) {
 
     return (
         <div className="flex flex-wrap justify-start">
-            <div onClick={handleRemovePokemon} className="bg-red-500 py-2 px-4 text-white rounded font-bold mb-12 flex flex-wrap items-center cursor-pointer">
+            <div onClick={handleRemovePokemon} className="bg-red-500 py-2 px-4 text-white rounded font-bold flex flex-wrap items-center cursor-pointer">
                 <i className="Icon-close mr-2 font-bold text-xl"></i>
                 <span>{`Retirer de l'équipe`}</span>
             </div>

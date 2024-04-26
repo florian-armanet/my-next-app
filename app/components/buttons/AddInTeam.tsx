@@ -1,7 +1,7 @@
 'use client'
 
 import { Pokemon } from '@/app/lib/definitions';
-import { useTeam } from '../../components/context/TeamContext';
+import { useTeam } from '../context/TeamContext';
 import { addPokemonInTeam } from "../../lib/actions";
 
 export default function AddInTeam({ pokemon }: { pokemon: Pokemon }) {
@@ -14,7 +14,7 @@ export default function AddInTeam({ pokemon }: { pokemon: Pokemon }) {
 
     return (
         <div className="flex flex-wrap justify-start">
-            <div onClick={handleAddPokemon} className="bg-violet-900 py-2 px-4 text-white rounded font-bold mb-12 flex flex-wrap items-center cursor-pointer">
+            <div onClick={handleAddPokemon} className="bg-violet-900 py-2 px-4 text-white rounded font-bold flex flex-wrap items-center cursor-pointer">
                 <i className="Icon-plus mr-2 font-bold text-xl"></i>
                 <span>{`Ajouter à l'équipe`}</span>
             </div>

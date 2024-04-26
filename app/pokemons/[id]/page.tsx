@@ -2,8 +2,8 @@ import { _MAIL_TMP } from "@/app/lib/constants"
 import { getPokemonByPokedexId, getUser } from "@/app/lib/data"
 import Image from "next/image"
 import Link from "next/link"
-import AddInTeam from "./AddInTeam"
-import RemoveOfTeam from "./RemoveOfTeam"
+import AddInTeam from "../../components/buttons/AddInTeam"
+import RemoveOfTeam from "../../components/buttons/RemoveOfTeam"
 
 export default async function Page({ params }: { params: { id: string } }) {
     const id = Number(params.id)
