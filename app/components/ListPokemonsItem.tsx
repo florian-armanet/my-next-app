@@ -15,7 +15,7 @@ export default function ListPokemonsItem({ pokemon }: { pokemon: Pokemon }) {
 
     return (
         <li className="basis-1/4 p-2" key={pokemon.pokedexId}>
-            <div className="bg-violet-200 h-full rounded-xl p-4 flex flex-col">
+            <div className="bg-violet-200 h-full rounded-xl p-4 flex flex-col min-h-52">
                 <Link href={`/pokemons/${pokemon.pokedexId}`}>
                     <Image
                         src={pokemon.image}

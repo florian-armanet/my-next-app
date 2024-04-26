@@ -1,4 +1,4 @@
-import { _MAIL_TMP } from "@/app/lib/constants"
+import { _MAIL_TMP, _NB_MAX_IN_TEAM } from "@/app/lib/constants"
 import { getPokemonByPokedexId, getUser } from "@/app/lib/data"
 import Image from "next/image"
 import Link from "next/link"
@@ -37,7 +37,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                             )}
                         </ul>
 
-                        {!hasPokemonInTeam && <AddInTeam pokemon={pokemon} />}
+                        {!hasPokemonInTeam && idsOfTeam.length < _NB_MAX_IN_TEAM && <AddInTeam pokemon={pokemon} />}
 
                         {hasPokemonInTeam && <RemoveOfTeam pokemon={pokemon} />}
                     </div>

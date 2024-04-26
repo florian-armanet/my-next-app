@@ -22,7 +22,7 @@ export interface Pokemon {
     stats: Stats;
 }
 
-interface Stats {
+export interface Stats {
     hp: number;
     attack: number;
     defense: number;

@@ -128,7 +128,7 @@ export async function fetchFilteredPokemons(query: string) {
         ORDER BY pokemons.pokedexId ASC
         LIMIT ${_LIMIT_SEARCH};
         `
-        console.log(data)
+
         const dataFormatted = [...data.rows].map(p => {
             const stats = {
                 hp: p.hp,
@@ -161,7 +161,7 @@ export async function getUser(email: string) {
 
     try {
         const user = await sql`SELECT * FROM users WHERE email=${email}`;
-        console.log(user.rows[0])
+        
         return user.rows[0] as User;
     } catch (error) {
         console.error('Failed to fetch user:', error);
