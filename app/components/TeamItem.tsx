@@ -9,7 +9,7 @@ export default function TeamItem({ pokemon }: { pokemon: Pokemon }) {
     if (!pokemon) return
 
     return (
-        <div className="relative bg-gray-300 rounded-full h-40 w-40 m-2 flex flex-wrap items-center justify-center p-4 border-4 border-violet-800 overflow-hidden cursor-pointer">
+        <div className="relative bg-gray-300 rounded-full h-32 lg:h-40 w-32 lg:w-40 m-2 flex flex-wrap items-center justify-center p-4 border-4 border-violet-800 overflow-hidden cursor-pointer">
             <Link href={`/pokemons/${pokemon.pokedexId}`}>
                 <Image src={pokemon.image} alt={pokemon.name} width={124} height={124} className="" priority={true} />
             </Link>

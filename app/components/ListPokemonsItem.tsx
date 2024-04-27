@@ -14,8 +14,8 @@ export default function ListPokemonsItem({ pokemon }: { pokemon: Pokemon }) {
     const hasPokemonInTeam = [...team].find(p => p.pokedexId === pokemon.pokedexId)
 
     return (
-        <li className="basis-1/4 p-2" key={pokemon.pokedexId}>
-            <div className="bg-violet-200 h-full rounded-xl p-4 flex flex-col min-h-52">
+        <li className="basis-1/2 md:basis-1/3 lg:basis-1/4 p-2" key={pokemon.pokedexId}>
+            <div className="bg-violet-200 h-full rounded-xl p-2 lg:p-4 flex flex-col min-h-52">
                 <Link href={`/pokemons/${pokemon.pokedexId}`}>
                     <Image
                         src={pokemon.image}
@@ -27,7 +27,7 @@ export default function ListPokemonsItem({ pokemon }: { pokemon: Pokemon }) {
                 </Link>
 
                 <div className="text-center mb-4">
-                    <h2 className="font-bold text-violet-900 text-xl">{pokemon.name}</h2>
+                    <h2 className="font-bold text-violet-900 lg:text-xl">{pokemon.name}</h2>
                     <p>Pokedex id : {pokemon.pokedexId}</p>
                 </div>
 

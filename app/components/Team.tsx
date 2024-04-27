@@ -7,7 +7,6 @@ import TeamItemSkeleton from './skeleton/TeamItemSkeleton';
 import TeamItemAdd from './TeamItemAdd';
 import { useTeam } from './context/TeamContext';
 import Image from 'next/image';
-import { Stats } from '../lib/definitions';
 import { motion } from 'framer-motion';
 
 export default function Team() {
@@ -29,18 +28,18 @@ export default function Team() {
     }, {})
 
     return (
-        <section className="relative mb-12 py-12">
+        <section className="relative mb-6 md:mb-12 py-6 md:py-12">
             <div className='z-0 absolute inset-0'>
                 <Image src="/pokemon_background.jpg" alt="Pokemon" className="object-cover h-full w-full" width={1920} height={1080} priority={true} />
                 <span className='absolute inset-0 bg-black/50'></span>
             </div>
             <div className='relative z-1 flex flex-col items-center'>
-                <h2 className="mb-12 text-3xl font-bold text-violet-900 bg-violet-100 rounded-xl px-8 py-4">
+                <h2 className="mx-4 mb-8 md:mb-12 text-xl md:text-3xl font-bold text-violet-900 bg-violet-100 rounded-xl px-8 py-4">
                     Créez votre équipe avec vos 6 pokemons préférés !
                 </h2>
                 <div className='flex flex-wrap justify-center w-full'>
-                    <div className='max-w-[650px] w-full pr-4 border-r-2 border-white'>
-                        <h2 className='text-center text-3xl text-white font-bold mb-8'>{`Equipe`}</h2>
+                    <div className='max-w-full lg:max-w-[650px] w-full pr-4 lg:border-r-2 border-white mb-8 lg:mb-0'>
+                        <h2 className='text-center text-2xl md:text-3xl text-white font-bold mb-4 lg:mb-8'>{`Equipe`}</h2>
                         <ul className="flex flex-wrap justify-center">
                             {arrayPlaceholder.map((_, index) =>
                                 <li key={index}
@@ -55,8 +54,8 @@ export default function Team() {
                         </ul>
                     </div>
 
-                    <div className='px-12 flex-1'>
-                        <h2 className='text-center text-white text-3xl font-bold mb-10'>{`Stats de l'équipe (moyenne)`}</h2>
+                    <div className='px-4 lg:px-12 flex-1'>
+                        <h2 className='text-center text-white text-2xl md:text-3xl font-bold mb-4 lg:mb-10'>{`Stats de l'équipe (moyenne)`}</h2>
                         <ul className="flex flex-col text-white">
                             {Object.entries(averageStatsOfTeam).map(([statName, statValue], index) =>
                                 <li className="mb-4 text-xl" key={index}>

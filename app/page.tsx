@@ -16,7 +16,7 @@ export default async function Home(
         <main className="flex min-h-screen flex-col">
             <PokemonsProvider pokemons={pokemons}>
                 <QueryProvider query={query}>
-                    <div className="px-24 pb-24">
+                    <div className="px-4 lg:px-24 pb-12 lg:pb-24">
                         <Search />
                         <Suspense fallback={<ListPokemonsSkeleton />}>
                             <ListPokemons pokemons={pokemons} />

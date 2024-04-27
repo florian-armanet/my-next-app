@@ -14,7 +14,7 @@ export default function TeamItemAdd() {
         <>
             <span
                 onClick={handleClick}
-                className='bg-gray-300 rounded-full h-40 w-40 m-2 flex flex-wrap items-center justify-center p-4 border-2 border-gray-400 overflow-hidden cursor-pointer text-6xl leading-none text-gray-500'>+</span>
+                className='bg-gray-300 rounded-full h-32 lg:h-40 w-32 lg:w-40 m-2 flex flex-wrap items-center justify-center p-4 border-2 border-gray-400 overflow-hidden cursor-pointer text-6xl leading-none text-gray-500'>+</span>
             <AnimatePresence>
                 {modalOpened && <motion.div
                     initial={{ opacity: 0 }}
