@@ -27,7 +27,7 @@ export default function ListPokemonsItem({ pokemon }: { pokemon: Pokemon }) {
                 </Link>
 
                 <div className="text-center mb-4">
-                    <h2 className="font-bold text-violet-900 lg:text-xl">{pokemon.name}</h2>
+                    <h2 className="font-bold text-primary-base lg:text-xl">{pokemon.name}</h2>
                     <p>Pokedex id : {pokemon.pokedexId}</p>
                 </div>
 

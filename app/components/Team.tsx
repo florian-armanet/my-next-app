@@ -28,13 +28,13 @@ export default function Team() {
     }, {})
 
     return (
-        <section className="relative mb-6 md:mb-12 py-6 md:py-12">
+        <section className="z-10 relative mb-6 md:mb-12 py-6 md:py-12">
             <div className='z-0 absolute inset-0'>
                 <Image src="/pokemon_background.jpg" alt="Pokemon" className="object-cover h-full w-full" width={1920} height={1080} priority={true} />
                 <span className='absolute inset-0 bg-black/50'></span>
             </div>
-            <div className='relative z-1 flex flex-col items-center'>
-                <h2 className="mx-4 mb-8 md:mb-12 text-xl md:text-3xl font-bold text-violet-900 bg-violet-100 rounded-xl px-8 py-4">
+            <div className='relative z-10 flex flex-col items-center'>
+                <h2 className="mx-4 mb-8 md:mb-12 text-xl md:text-3xl font-bold text-primary-base bg-violet-100 rounded-xl px-8 py-4">
                     Créez votre équipe avec vos 6 pokemons préférés !
                 </h2>
                 <div className='flex flex-wrap justify-center w-full'>

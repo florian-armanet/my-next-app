@@ -16,7 +16,7 @@ export default function TeamItemRemove({ pokemon }: { pokemon: Pokemon }) {
     }
 
     return (
-        <div onClick={handleClick} className="absolute bottom-1 w-6 h-6 bg-red-500 rounded-lg flex justify-center items-center">
+        <div onClick={handleClick} className="absolute bottom-1 w-6 h-6 bg-red-500 rounded-lg flex justify-center items-center hover:w-8 hover:h-8 transition-all">
             <i className="Icon-close text-sm font-bold text-white cursor-pointer" />
         </div>
     )

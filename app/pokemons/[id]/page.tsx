@@ -19,7 +19,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
     return (
         <main className="px-4 lg:px-24 pb-12 lg:pb-24">
-            <Link href={"/"} className="bg-violet-900 py-2 px-4 text-white rounded font-bold mb-8 inline-block">Retour</Link>
+            <Link href={"/"} className="Button Button--primary">Retour</Link>
             <div className="flex flex-wrap">
                 <div className="basis-full xs:basis-1/2">
                     <div className="p-4">
@@ -28,7 +28,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                 </div>
                 <div className="basis-full xs:basis-1/2">
                     <div className="p-4">
-                        <h1 className="text-violet-900 font-bold text-3xl mb-8 lg:mb-12">{pokemon.name}</h1>
+                        <h1 className="text-primary-base font-bold text-3xl mb-8 lg:mb-12">{pokemon.name}</h1>
 
                         <Stats stats={pokemon.stats} />
 

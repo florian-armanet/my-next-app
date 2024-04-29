@@ -13,7 +13,7 @@ export default async function Home(
     const pokemons = await fetchFilteredPokemons(query)
 
     return (
-        <main className="flex min-h-screen flex-col">
+        <main className="z-0 relative flex min-h-screen flex-col">
             <PokemonsProvider pokemons={pokemons}>
                 <QueryProvider query={query}>
                     <div className="px-4 lg:px-24 pb-12 lg:pb-24">

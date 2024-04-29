@@ -52,17 +52,17 @@ export default function Search() {
     }, [])
 
     return (
-        <div className="flex flex-wrap justify-center mb-8">
-            <div className="max-w-96 w-full border-2 border-violet-900 rounded-full px-8 py-2 flex flex-wrap items-center">
+        <div className="flex-flow-center mb-8">
+            <div className="relative">
                 <input type="text"
                     ref={inputRef}
                     onChange={(e) => handleChange(e.target.value)}
                     placeholder="Rechercher un pokemon..."
-                    className="w-full bg-transparent text-violet-900 focus:outline-none placeholder:text-violet-900 font-bold flex-1" />
+                    className="bg-transparent w-96 ring-inset ring-2 ring-primary-base focus:ring-4 transition-all rounded-full px-8 py-3 text-primary-base focus:outline-none placeholder:text-primary-base font-bold" />
                 {query.length ?
-                    <i onClick={handleReset} className="Icon-close text-violet-800 font-bold text-xl cursor-pointer"></i>
+                    <i onClick={handleReset} className="Icon-close text-violet-800 font-bold text-xl cursor-pointer absolute right-4 absolute-y-center"></i>
                     :
-                    <i className="Icon-search text-violet-800 font-bold text-xl"></i>
+                    <i className="Icon-search text-violet-800 font-bold text-xl absolute right-4 absolute-y-center"></i>
                 }
             </div>
         </div>

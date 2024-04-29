@@ -2,6 +2,8 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+// import Search from "./Search";
+// import ListPokemons from "./ListPokemons";
 
 export default function TeamItemAdd() {
     const [modalOpened, setModalOpened] = useState(false)
@@ -20,11 +22,13 @@ export default function TeamItemAdd() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="z-max fixed inset-x-40 inset-y-24 flex flex-col bg-white border-4 border-violet-900 rounded-lg shadow overflow-auto">
+                    className="z-max fixed inset-x-40 inset-y-24 flex flex-col bg-white border-4 border-primary-base rounded-lg shadow overflow-auto">
                     <div className="relative p-4 bg-primary-base/10 text-primary-base">
-                        <i onClick={() => setModalOpened(false)}
-                            className="Icon-close absolute text-violet-900 right-4 text-xl absolute-y-center cursor-pointer" />
                         <p>Pokemons</p>
+                        <i onClick={() => setModalOpened(false)}
+                            className="Icon-close absolute text-primary-base right-4 text-xl absolute-y-center cursor-pointer" />
+                        {/* <Search/> */}
+                        {/* <ListPokemons pokemons={pokemons} /> */}
                     </div>
                 </motion.div>}
             </AnimatePresence>

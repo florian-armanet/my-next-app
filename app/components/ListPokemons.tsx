@@ -11,7 +11,7 @@ export default async function ListPokemons({ pokemons }: { pokemons: Pokemon[] }
                         {pokemons.map(pokemon => <ListPokemonsItem pokemon={pokemon} key={pokemon.pokedexId} />)}
                     </ul>
                     :
-                    <p className="p-8 border-violet-900 border-4 rounded text-xl text-violet-900 font-bold text-center">
+                    <p className="p-8 border-primary-base border-4 rounded text-xl text-primary-base font-bold text-center">
                         Aucun résultat
                     </p>
             }

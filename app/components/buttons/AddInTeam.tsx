@@ -14,9 +14,11 @@ export default function AddInTeam({ pokemon }: { pokemon: Pokemon }) {
 
     return (
         <div className="flex flex-wrap justify-start">
-            <div onClick={handleAddPokemon} className="bg-violet-900 py-2 px-4 text-white rounded font-bold flex flex-wrap items-center cursor-pointer">
-                <i className="Icon-plus mr-2 font-bold text-xl"></i>
-                <span className='text-sm lg:text-base'>{`Ajouter à l'équipe`}</span>
+            <div onClick={handleAddPokemon} className="Button Button--primary">
+                <div className='flex flex-wrap items-center'>
+                    <i className="Icon-plus mr-2 font-bold text-xl"></i>
+                    <span className='lg-down:text-sm'>{`Ajouter à l'équipe`}</span>
+                </div>
             </div>
         </div>
     )
