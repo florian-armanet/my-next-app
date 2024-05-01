@@ -29,13 +29,15 @@ body {
             rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
-@import './css/settings/settings-utils';
+@import 
+'./css/settings/settings-icons',
+'./css/settings/settings-utils'
+;
 
 @import './css/base/base-default.scss';
 
 @import 
-'./css/mixins.scss',
-'./css/icons.scss'
+'./css/mixins.scss'
 ;
 
 @import 

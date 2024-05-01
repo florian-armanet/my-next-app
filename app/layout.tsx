@@ -21,15 +21,19 @@ export default async function RootLayout({
     children: React.ReactNode;
 }>) {
     const user = await getUser(_MAIL_TMP)
-    const idsOfTeam = user.team.split(',').map(id => Number(id))
-    const team = await Promise.all([...idsOfTeam.map(idsOfTeam => getPokemonByPokedexId(idsOfTeam)).filter(p => p)]) as TypeTeam
+    const idsOfTeam = user.team ? user.team.split(',').map(id => Number(id)) : []
+
+    const team = idsOfTeam.length ?
+        await Promise.all([...idsOfTeam.map(idsOfTeam => getPokemonByPokedexId(idsOfTeam)).filter(p => p)]) as TypeTeam
+        :
+        []
 
     return (
         <html lang="fr">
             <body className={inter.className} suppressHydrationWarning={true}>
                 <UserProvider user={user}>
                     <TeamProvider team={team}>
-                        <Team/>
+                        <Team />
                         {children}
                     </TeamProvider>
                 </UserProvider>

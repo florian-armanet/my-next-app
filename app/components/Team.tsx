@@ -8,12 +8,13 @@ import TeamItemAdd from './TeamItemAdd';
 import { useTeam } from './context/TeamContext';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import ModalProvider from './context/Modal';
 
 export default function Team() {
     const [team] = useTeam()
     const arrayPlaceholder = new Array(_NB_MAX_IN_TEAM).fill(null)
 
-    const statsOfTeam = [...team].map(pokemon => pokemon.stats)
+    const statsOfTeam = [...team].filter(pokemon => pokemon?.stats).map(pokemon => pokemon.stats)
 
     const averageStatsOfTeam = [...statsOfTeam].reduce((acc: { [key: string]: number }, curr, index, array) => {
         Object.entries(curr).forEach(([key, value]) => {
@@ -39,7 +40,9 @@ export default function Team() {
                 </h2>
                 <div className='flex flex-wrap justify-center w-full'>
                     <div className='max-w-full lg:max-w-[650px] w-full pr-4 lg:border-r-2 border-white mb-8 lg:mb-0'>
-                        <h2 className='text-center text-2xl md:text-3xl text-white font-bold mb-4 lg:mb-8'>{`Equipe`}</h2>
+                        <h2 className='text-center text-2xl md:text-3xl text-white font-bold mb-4 lg:mb-8'>
+                            {`Equipe (${team.length} / ${_NB_MAX_IN_TEAM})`}
+                            </h2>
                         <ul className="flex flex-wrap justify-center">
                             {arrayPlaceholder.map((_, index) =>
                                 <li key={index}
@@ -48,7 +51,11 @@ export default function Team() {
                                         <Suspense fallback={<TeamItemSkeleton />}>
                                             <TeamItem pokemon={team[index]} />
                                         </Suspense>}
-                                    {index >= team.length && <TeamItemAdd />}
+                                    {index >= team.length &&
+                                        <ModalProvider modalOpened={false}>
+                                            <TeamItemAdd />
+                                        </ModalProvider>
+                                    }
                                 </li>
                             )}
                         </ul>
@@ -60,11 +67,11 @@ export default function Team() {
                             {Object.entries(averageStatsOfTeam).map(([statName, statValue], index) =>
                                 <li className="mb-4 text-xl" key={index}>
                                     <span>{statName} : </span><span>{statValue}</span>
-                                    <motion.div 
-                                    initial={{ width: 0 }} 
-                                    animate={{ width: `${statValue}%` }}
-                                    transition={{ease: "easeInOut", duration: 1}}
-                                    className='bg-violet-500 rounded h-4'/>
+                                    <motion.div
+                                        initial={{ width: 0 }}
+                                        animate={{ width: `${statValue}%` }}
+                                        transition={{ ease: "easeInOut", duration: 1 }}
+                                        className='bg-violet-500 rounded h-4' />
                                 </li>
                             )}
                         </ul>

@@ -3,7 +3,7 @@ import ListPokemonsSkeleton from "./components/skeleton/ListPokemonsSkeleton";
 import ListPokemons from "./components/ListPokemons";
 import { fetchFilteredPokemons } from "./lib/data";
 import PokemonsProvider from "./components/context/PokemonsContext";
-import Search from "./components/Search";
+import SearchByQuery from "./components/SearchByQuery";
 import QueryProvider from "./components/context/QueryContext";
 
 export default async function Home(
@@ -17,7 +17,7 @@ export default async function Home(
             <PokemonsProvider pokemons={pokemons}>
                 <QueryProvider query={query}>
                     <div className="px-4 lg:px-24 pb-12 lg:pb-24">
-                        <Search />
+                        <SearchByQuery />
                         <Suspense fallback={<ListPokemonsSkeleton />}>
                             <ListPokemons pokemons={pokemons} />
                         </Suspense>

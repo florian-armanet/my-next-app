@@ -9,10 +9,18 @@ $icons: (
     close :'e901',
     search :'e902',
     plus :'e903',
+    check :'e904',
+    arrow-right :'e905',
+    arrow-left :'e906',
+    angle-top :'e907',
+    angle-right :'e908',
+    angle-left :'e909',
+    angle-bottom :'e90a',
+    pets :'e90b',
 );
 
 @function str-unicode($str) {
-    @return unquote("\"") + unquote(str-insert($str, "\\", 1)) + unquote("\"")
+    @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"")
 }
 
 @function unicode($icon) {

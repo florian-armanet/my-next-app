@@ -7,7 +7,7 @@ import { revalidatePath } from 'next/cache';
 // import { redirect } from 'next/navigation'
 
 export async function addPokemonInTeam(team: Team, pokemon: Pokemon) {
-    if(!team.length || !Object.keys(pokemon).length) return
+    if(!Object.keys(pokemon).length) return
 
     const teamPokedexid = [...team.map(p => String(p.pokedexId)), String(pokemon.pokedexId)] as string[]
 
