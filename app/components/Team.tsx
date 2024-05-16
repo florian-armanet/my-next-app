@@ -28,6 +28,9 @@ export default function Team() {
         return acc
     }, {})
 
+    const maxValue = Math.max(...Object.values(averageStatsOfTeam))
+    const ratio = maxValue <= 100 ? 1 : (100 / maxValue)
+
     return (
         <section className="z-10 relative mb-6 md:mb-12 py-6 md:py-12">
             <div className='z-0 absolute inset-0'>
@@ -42,7 +45,7 @@ export default function Team() {
                     <div className='max-w-full lg:max-w-[650px] w-full pr-4 lg:border-r-2 border-white mb-8 lg:mb-0'>
                         <h2 className='text-center text-2xl md:text-3xl text-white font-bold mb-4 lg:mb-8'>
                             {`Equipe (${team.length} / ${_NB_MAX_IN_TEAM})`}
-                            </h2>
+                        </h2>
                         <ul className="flex flex-wrap justify-center">
                             {arrayPlaceholder.map((_, index) =>
                                 <li key={index}
@@ -69,7 +72,7 @@ export default function Team() {
                                     <span>{statName} : </span><span>{statValue}</span>
                                     <motion.div
                                         initial={{ width: 0 }}
-                                        animate={{ width: `${statValue}%` }}
+                                        animate={{ width: `${ratio * statValue}%` }}
                                         transition={{ ease: "easeInOut", duration: 1 }}
                                         className='bg-violet-500 rounded h-4' />
                                 </li>

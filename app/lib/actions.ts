@@ -9,7 +9,7 @@ import { revalidatePath } from 'next/cache';
 export async function addPokemonInTeam(team: Team, pokemon: Pokemon) {
     if(!Object.keys(pokemon).length) return
 
-    const teamPokedexid = [...team.map(p => String(p.pokedexId)), String(pokemon.pokedexId)] as string[]
+    const teamPokedexid = [...team.map(p => String(p.pokedexId)), String(pokemon.pokedexId)]
 
     await sql`
     UPDATE users
